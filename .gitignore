@@ -39,3 +39,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/chromedriver-win64/chromedriver.exe
+/chromedriver-win64/LICENSE.chromedriver
+/geckodriver-win64/geckodriver.exe
