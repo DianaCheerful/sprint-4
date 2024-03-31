@@ -3,6 +3,7 @@ package ru.yandex.praktikum.tests.pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.praktikum.tests.constants.OrderData;
 
 public class OrderPageObject {
 
@@ -18,6 +19,7 @@ public class OrderPageObject {
     private final By rentDurationField = By.xpath("//div[text() = '* Срок аренды']");
     private final By submitButton = By.xpath("//button[@class = 'Button_Button__ra12g Button_Middle__1CSJM']");
     private final By confirmButton = By.xpath("//button[text() = 'Да']");
+    private final By watchStatus = By.xpath("//button[text() = 'Посмотреть статус']");
     private final By successHeader = By.xpath("//div[text() = 'Заказ оформлен']");
 
 
@@ -25,29 +27,17 @@ public class OrderPageObject {
         this.driver = driver;
     }
 
-    public boolean isOrderPageOpened() {
-        return driver.findElement(firstNameField).isDisplayed();
-    }
 
-    public String createOrder(
-            String firstName,
-            String lastName,
-            String address,
-            String subway,
-            String phone,
-            String rentDay,
-            String rentDuration,
-            String color
-    ) {
-        fillFirstName(firstName);
-        fillLastName(lastName);
-        fillAddress(address);
-        fillSubway(subway);
-        fillPhone(phone);
+    public String createOrder(OrderData orderData) {
+        fillFirstName(orderData.getFirstName());
+        fillLastName(orderData.getLastName());
+        fillAddress(orderData.getAddress());
+        fillSubway(orderData.getSubway());
+        fillPhone(orderData.getPhone());
         pressContinue();
-        fillRentDate(rentDay);
-        fillRentDuration(rentDuration);
-        fillColor(color);
+        fillRentDate(orderData.getRentDay());
+        fillRentDuration(orderData.getRentDuration());
+        fillColor(orderData.getColor());
         submitOrder();
         return driver.findElement(successHeader).getText();
     }
@@ -101,5 +91,9 @@ public class OrderPageObject {
         new WebDriverWait(driver, 3).until(driver -> driver.findElement(confirmButton).isEnabled());
         driver.findElement(confirmButton).click();
         new WebDriverWait(driver, 3).until(driver -> driver.findElement(successHeader).isDisplayed());
+    }
+
+    public void clickStatusButton() {
+        driver.findElement(watchStatus).click();
     }
 }
