@@ -3,15 +3,15 @@ package ru.yandex.praktikum.tests.additionalTests;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import ru.yandex.praktikum.tests.CommonTestService;
-import ru.yandex.praktikum.tests.pageObjects.OrderStatusPageObject;
+import ru.yandex.praktikum.tests.BaseTest;
+import ru.yandex.praktikum.tests.objects.OrderStatusPageObject;
 
 import static org.junit.Assert.assertTrue;
 import static ru.yandex.praktikum.tests.constants.TestConstants.ORDER_NUMBER_1;
 import static ru.yandex.praktikum.tests.constants.TestConstants.ORDER_NUMBER_2;
 
 @RunWith(Parameterized.class)
-public class OrderStatusTest extends CommonTestService {
+public class OrderStatusTest extends BaseTest {
 
     private final String orderNumber;
 

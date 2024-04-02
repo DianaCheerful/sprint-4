@@ -3,13 +3,13 @@ package ru.yandex.praktikum.tests;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
-import ru.yandex.praktikum.tests.pageObjects.MainPageObject;
+import ru.yandex.praktikum.tests.objects.MainPageObject;
 
 import static ru.yandex.praktikum.tests.WebDriverConfiguration.setDriver;
 import static ru.yandex.praktikum.tests.constants.TestConstants.SCOOTER_MAIN_PAGE_URL;
 import static ru.yandex.praktikum.tests.constants.TestConstants.WebDriverType.FIREFOX;
 
-public class CommonTestService {
+public class BaseTest {
 
     private static WebDriver driver;
     protected static MainPageObject mainPageObject;

@@ -1,14 +1,17 @@
 package ru.yandex.praktikum.tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.rules.ExternalResource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
-import static ru.yandex.praktikum.tests.constants.TestConstants.*;
+import static ru.yandex.praktikum.tests.constants.TestConstants.WebDriverType;
 import static ru.yandex.praktikum.tests.constants.TestConstants.WebDriverType.CHROME;
 
-public class WebDriverConfiguration {
+public class WebDriverConfiguration extends ExternalResource {
 
     public static WebDriver setDriver(WebDriverType webDriver) {
         if (webDriver == CHROME) {
@@ -20,13 +23,11 @@ public class WebDriverConfiguration {
 
     private static ChromeDriver setChrome() {
         WebDriverManager.chromedriver().setup();
-        System.setProperty(CHROME_DRIVER_PARAM, CHROME_DRIVER_PATH);
-        return new ChromeDriver();
+        return new ChromeDriver(new ChromeOptions());
     }
 
     private static FirefoxDriver setFirefox() {
         WebDriverManager.firefoxdriver().setup();
-        System.setProperty(FIREFOX_DRIVER_PARAM, FIREFOX_DRIVER_PATH);
-        return new FirefoxDriver();
+        return new FirefoxDriver(new FirefoxOptions());
     }
 }

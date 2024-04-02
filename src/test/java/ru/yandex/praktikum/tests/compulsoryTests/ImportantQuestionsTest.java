@@ -3,14 +3,14 @@ package ru.yandex.praktikum.tests.compulsoryTests;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import ru.yandex.praktikum.tests.CommonTestService;
-import ru.yandex.praktikum.tests.pageObjects.ImportantQuestionsObject;
+import ru.yandex.praktikum.tests.BaseTest;
+import ru.yandex.praktikum.tests.objects.ImportantQuestionsObject;
 
 import static org.junit.Assert.assertEquals;
 import static ru.yandex.praktikum.tests.constants.Answer.*;
 
 @RunWith(Parameterized.class)
-public class ImportantQuestionsTest extends CommonTestService {
+public class ImportantQuestionsTest extends BaseTest {
 
     private final String questionIndex;
     private final String checkedAnswer;

@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.tests.pageObjects;
+package ru.yandex.praktikum.tests.objects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

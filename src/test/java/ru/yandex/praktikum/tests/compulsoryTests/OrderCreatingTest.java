@@ -5,9 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import ru.yandex.praktikum.tests.CommonTestService;
+import ru.yandex.praktikum.tests.BaseTest;
 import ru.yandex.praktikum.tests.constants.OrderData;
-import ru.yandex.praktikum.tests.pageObjects.OrderPageObject;
+import ru.yandex.praktikum.tests.objects.OrderPageObject;
 
 import static org.junit.Assert.assertTrue;
 import static ru.yandex.praktikum.tests.constants.OrderData.ORDER_1;
@@ -18,7 +18,7 @@ import static ru.yandex.praktikum.tests.constants.TestConstants.OrderButtonPosit
 import static ru.yandex.praktikum.tests.constants.TestConstants.SUCCESS_ORDER_MESSAGE;
 
 @RunWith(Parameterized.class)
-public class OrderCreatingTest extends CommonTestService {
+public class OrderCreatingTest extends BaseTest {
 
     private OrderPageObject orderPageObject;
 
